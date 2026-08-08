@@ -1,6 +1,6 @@
 # 📱 Desenvolvimento Mobile — Projeto 1
 
-<img width="500" height="281" alt="giphy-1-" src="https://github.com/user-attachments/assets/16bb6d7e-e384-4e4d-aec9-0addf5d6caa8" />
+<img width="800" height="400" alt="giphy-1-" src="https://github.com/user-attachments/assets/16bb6d7e-e384-4e4d-aec9-0addf5d6caa8" />
 
 
 > Primeiro projeto focado no aprendizado e na prática de desenvolvimento mobile utilizando o **Android Studio**.
@@ -23,6 +23,7 @@ Este repositório foi criado para registrar os primeiros passos na criação de 
 | **Controle de Versão** | Git & GitHub |
 
 ---
+- [x] Manipulação de eventos de interface de usuário (UI)
 
 ## 🚀 Funcionalidades Demonstradas
 
