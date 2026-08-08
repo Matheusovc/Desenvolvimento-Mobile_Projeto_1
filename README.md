@@ -1,5 +1,8 @@
 # 📱 Desenvolvimento Mobile — Projeto 1
 
+<img width="500" height="281" alt="giphy-1-" src="https://github.com/user-attachments/assets/16bb6d7e-e384-4e4d-aec9-0addf5d6caa8" />
+
+
 > Primeiro projeto focado no aprendizado e na prática de desenvolvimento mobile utilizando o **Android Studio**.
 
 ---
