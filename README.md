@@ -1,51 +1,81 @@
-# 📱 Desenvolvimento Mobile — Projeto 1
+# FieldService
 
-<img width="800" height="400" alt="giphy-1-" src="https://github.com/user-attachments/assets/16bb6d7e-e384-4e4d-aec9-0addf5d6caa8" />
+Aplicativo Android para técnicos de campo acompanharem e executarem chamados de assistência técnica (Field Service Management). Este repositório contém a **primeira versão** do app: a base do cliente Android, com dados mockados e arquitetura preparada para receber uma API real no futuro.
 
+## Objetivo
 
-> Primeiro projeto focado no aprendizado e na prática de desenvolvimento mobile utilizando o **Android Studio**.
+Ajudar empresas com técnicos externos a organizar e acompanhar chamados de assistência técnica. Nesta etapa, o foco é oferecer uma base sólida — arquitetura, navegação e telas principais — para o técnico visualizar seus chamados e iniciar o atendimento.
 
----
+## Principais funcionalidades
 
-## 📌 Sobre o Projeto
+- Login (mock, sem backend)
+- Home do técnico com resumo do dia (pendentes / em atendimento / concluídos) e chamados prioritários
+- Lista de chamados com filtros (Todos / Pendentes / Em atendimento / Concluídos)
+- Detalhes do chamado, com ação de aceitar um chamado atribuído
+- Perfil do técnico com logout
 
-Este repositório foi criado para registrar os primeiros passos na criação de aplicações mobile nativas. O objetivo principal é consolidar conceitos fundamentais do ecossistema Android, explorando layouts, componentes visuais e a navegação da plataforma.
+Funcionalidades como deslocamento, chegada, diagnóstico, evidências, peças utilizadas e sincronização com backend **ainda não foram implementadas** — fazem parte dos próximos ciclos do projeto.
 
----
+## Tecnologias
 
-## 🛠️ Tecnologias e Ferramentas
+- Kotlin
+- Jetpack Compose + Material 3
+- Navigation Compose
+- ViewModel + StateFlow
+- Kotlin Coroutines
+- JUnit + kotlinx-coroutines-test (testes unitários)
 
-| Categoria | Tecnologia / Ferramenta |
-| :--- | :--- |
-| **IDE** | Android Studio |
-| **Linguagem** | Kotlin / Java |
-| **Interface** | XML / Jetpack Compose |
-| **Controle de Versão** | Git & GitHub |
+Ainda não há Room, Retrofit ou injeção de dependência (Hilt) — serão adicionados quando o app realmente precisar (persistência local e API), evitando dependências desnecessárias nesta fase.
 
----
-- [x] Manipulação de eventos de interface de usuário (UI)
+## Arquitetura
 
-## 🚀 Funcionalidades Demonstradas
+O projeto segue uma variação de MVVM com Repository Pattern:
 
-- [x] Estruturação inicial do projeto Android
-- [x] Construção e estilização de telas (Layouts)
-- [x] Manipulação de eventos de interface de usuário (UI)
-- [x] Boas práticas de organização de pastas
+```
+UI (Composable) → ViewModel → Repository (interface) → Fonte de dados (mock hoje, API futuramente)
+```
 
----
+- As telas (Composables) não acessam dados diretamente; só observam `StateFlow` expostos pelos ViewModels.
+- Os ViewModels dependem de **interfaces** de repositório (`TicketRepository`, `AuthRepository`), nunca de implementações concretas.
+- As implementações mock (`MockTicketRepository`, `MockAuthRepository`) simulam uma fonte remota (com pequeno delay). Trocar por uma implementação baseada em Retrofit no futuro não deve exigir mudanças nas telas.
+- Dependências são fornecidas por um `AppContainer` simples (DI manual), suficiente para o tamanho atual do projeto.
 
-## 📸 Demonstração da Aplicação
+## Estrutura do projeto
 
-> *Dica: Adicione aqui capturas de tela ou GIFs mostrando o app em execução no emulador ou dispositivo físico.*
+```
+com.fieldservice.app/
+├── data/
+│   ├── AppContainer.kt          # provedor manual das dependências
+│   ├── mock/                    # dados de exemplo (MOCK)
+│   └── repository/              # implementações mock dos repositórios
+├── domain/
+│   ├── model/                   # Ticket, TicketStatus, Priority, Technician
+│   └── repository/              # interfaces TicketRepository, AuthRepository
+├── presentation/
+│   ├── navigation/               # rotas centralizadas + grafo de navegação
+│   ├── login/ | home/ | tickets/ | ticketdetails/ | profile/
+│   └── UiState.kt                # estado genérico (Loading/Success/Error/Empty)
+├── ui/
+│   ├── components/                # componentes reutilizáveis (botão, campo de texto,
+│   │                               #   card de chamado, badges de prioridade/status, estados de UI)
+│   └── theme/                     # cores, tipografia e tema Material 3 do FieldService
+└── utils/                         # utilitários (ex.: formatação de data)
+```
 
-| Tela Principal | Fluxo / Interação |
-| :---: | :---: |
-| ![Tela Inicial](https://via.placeholder.com/250x500?text=Sua+Imagem+Aqui) | ![Demonstração](https://via.placeholder.com/250x500?text=Seu+GIF+Aqui) |
+## Como executar
 
----
+1. Abra a pasta do projeto no Android Studio.
+2. Aguarde a sincronização do Gradle (**File → Sync Project with Gradle Files**).
+3. Crie ou selecione um emulador (**Device Manager**) ou conecte um dispositivo físico com depuração USB.
+4. Rode o módulo `app` (▶️ ou `Shift+F10`).
+5. Na tela de login, use as credenciais mock:
+   - **E-mail:** `tecnico@fieldservice.com`
+   - **Senha:** `123456`
 
-## 📦 Como Executar o Projeto
+## Status do desenvolvimento
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/Matheusovc/Desenvolvimento-Mobile---Projeto-1-.git](https://github.com/Matheusovc/Desenvolvimento-Mobile---Projeto-1-.git)
+🚧 Em desenvolvimento — primeira versão.
+
+Implementado nesta etapa: login mock, navegação entre Home/Chamados/Perfil, listagem e detalhes de chamados, ação de aceitar chamado, tema visual próprio e testes unitários básicos (ViewModel e repositório).
+
+Ainda não implementado (propositalmente, fora do escopo desta etapa): backend/API real, banco de dados local (Room), autenticação real, geolocalização, notificações, upload de evidências, funcionamento offline e sincronização.
