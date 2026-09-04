@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Chip de filtro da tela de Chamados. Estilizado para o dark mode do FieldService:
+     azul + texto branco quando selecionado, superfície escura + cinza quando não. -->
+<com.google.android.material.chip.Chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.Chip.Filter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:textColor="@color/chip_filter_text"
+    app:checkedIconVisible="false"
+    app:chipBackgroundColor="@color/chip_filter_background"
+    app:chipStrokeWidth="0dp" />

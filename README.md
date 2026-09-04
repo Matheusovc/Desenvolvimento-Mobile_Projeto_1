@@ -18,12 +18,14 @@ Funcionalidades como deslocamento, chegada, diagnóstico, evidências, peças ut
 
 ## Tecnologias
 
-- Kotlin
-- Jetpack Compose + Material 3
-- Navigation Compose
-- ViewModel + StateFlow
-- Kotlin Coroutines
-- JUnit + kotlinx-coroutines-test (testes unitários)
+- Java
+- Android SDK (AndroidX)
+- XML Layouts + Material Components (Material 3)
+- View Binding
+- RecyclerView
+- ViewModel + LiveData
+- Repository Pattern
+- JUnit (testes unitários)
 
 Ainda não há Room, Retrofit ou injeção de dependência (Hilt) — serão adicionados quando o app realmente precisar (persistência local e API), evitando dependências desnecessárias nesta fase.
 
@@ -32,12 +34,12 @@ Ainda não há Room, Retrofit ou injeção de dependência (Hilt) — serão adi
 O projeto segue uma variação de MVVM com Repository Pattern:
 
 ```
-UI (Composable) → ViewModel → Repository (interface) → Fonte de dados (mock hoje, API futuramente)
+UI (Activity + XML) → ViewModel → Repository (interface) → Fonte de dados (mock hoje, API futuramente)
 ```
 
-- As telas (Composables) não acessam dados diretamente; só observam `StateFlow` expostos pelos ViewModels.
+- As telas (Activities) não acessam dados diretamente; só observam `LiveData` exposto pelos ViewModels.
 - Os ViewModels dependem de **interfaces** de repositório (`TicketRepository`, `AuthRepository`), nunca de implementações concretas.
-- As implementações mock (`MockTicketRepository`, `MockAuthRepository`) simulam uma fonte remota (com pequeno delay). Trocar por uma implementação baseada em Retrofit no futuro não deve exigir mudanças nas telas.
+- As implementações mock (`MockTicketRepository`, `MockAuthRepository`) simulam a fonte de dados. Trocar por uma implementação baseada em Retrofit no futuro não deve exigir mudanças nas telas.
 - Dependências são fornecidas por um `AppContainer` simples (DI manual), suficiente para o tamanho atual do projeto.
 
 ## Estrutura do projeto
@@ -45,22 +47,25 @@ UI (Composable) → ViewModel → Repository (interface) → Fonte de dados (moc
 ```
 com.fieldservice.app/
 ├── data/
-│   ├── AppContainer.kt          # provedor manual das dependências
+│   ├── AppContainer.java        # provedor manual das dependências
 │   ├── mock/                    # dados de exemplo (MOCK)
 │   └── repository/              # implementações mock dos repositórios
 ├── domain/
 │   ├── model/                   # Ticket, TicketStatus, Priority, Technician
 │   └── repository/              # interfaces TicketRepository, AuthRepository
 ├── presentation/
-│   ├── navigation/               # rotas centralizadas + grafo de navegação
 │   ├── login/ | home/ | tickets/ | ticketdetails/ | profile/
-│   └── UiState.kt                # estado genérico (Loading/Success/Error/Empty)
+│   └── UiState.java             # estado genérico (Loading/Success/Error/Empty)
 ├── ui/
-│   ├── components/                # componentes reutilizáveis (botão, campo de texto,
-│   │                               #   card de chamado, badges de prioridade/status, estados de UI)
-│   └── theme/                     # cores, tipografia e tema Material 3 do FieldService
-└── utils/                         # utilitários (ex.: formatação de data)
+│   └── components/              # componentes reutilizáveis (adapter, badges de prioridade/status)
+└── utils/                       # utilitários (ex.: formatação de data)
 ```
+
+O código Kotlin/Compose da fase anterior do projeto foi preservado em `legacy-kotlin/` (fora do módulo compilado) apenas como referência histórica; ele não faz parte do build.
+
+## Identidade visual
+
+O app tem uma única identidade visual **dark mode**, aplicada de forma consistente independentemente do tema do sistema. As cores ficam centralizadas em `res/values/colors.xml` (e replicadas em `res/values-night/colors.xml`), nunca embutidas nos layouts ou nas classes Java.
 
 ## Como executar
 
@@ -76,6 +81,6 @@ com.fieldservice.app/
 
 🚧 Em desenvolvimento — primeira versão.
 
-Implementado nesta etapa: login mock, navegação entre Home/Chamados/Perfil, listagem e detalhes de chamados, ação de aceitar chamado, tema visual próprio e testes unitários básicos (ViewModel e repositório).
+Implementado nesta etapa: login mock, navegação Home → Chamados → Detalhes → Perfil → Logout, listagem e detalhes de chamados, ação de aceitar chamado, tema visual próprio (dark) e testes unitários básicos (ViewModel, repositório e filtros).
 
 Ainda não implementado (propositalmente, fora do escopo desta etapa): backend/API real, banco de dados local (Room), autenticação real, geolocalização, notificações, upload de evidências, funcionamento offline e sincronização.

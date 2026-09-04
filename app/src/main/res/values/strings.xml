@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">FieldService</string>
+
+    <!-- Login -->
+    <string name="login_subtitle">Gestão de atendimentos em campo</string>
+    <string name="label_email">E-mail</string>
+    <string name="label_password">Senha</string>
+    <string name="action_login">Entrar</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Olá, %1$s 👋</string>
+    <string name="home_summary_title">Resumo do dia</string>
+    <string name="home_summary_pending">Chamados pendentes</string>
+    <string name="home_summary_in_progress">Em atendimento</string>
+    <string name="home_summary_completed">Concluídos</string>
+    <string name="home_priority_title">Chamados prioritários</string>
+    <string name="action_view_tickets">Chamados</string>
+
+    <!-- Chamados -->
+    <string name="tickets_title">Chamados</string>
+    <string name="tickets_empty">Nenhum chamado encontrado para este filtro</string>
+    <string name="tickets_error">Não foi possível carregar os chamados</string>
+
+    <!-- Detalhes do chamado -->
+    <string name="detail_title">Detalhes do chamado</string>
+    <string name="detail_client">CLIENTE</string>
+    <string name="detail_address">ENDEREÇO</string>
+    <string name="detail_description">DESCRIÇÃO</string>
+    <string name="action_accept_ticket">ACEITAR CHAMADO</string>
+    <string name="action_start_travel">INICIAR DESLOCAMENTO</string>
+    <string name="action_register_arrival">REGISTRAR CHEGADA</string>
+    <string name="action_start_service">INICIAR ATENDIMENTO</string>
+    <string name="action_finish_service">FINALIZAR ATENDIMENTO</string>
+    <string name="ticket_not_found">Chamado não encontrado</string>
+
+    <!-- Perfil -->
+    <string name="profile_title">Perfil</string>
+    <string name="profile_role">Técnico de Campo</string>
+    <string name="action_profile">Perfil</string>
+    <string name="action_logout">Sair</string>
 </resources>
