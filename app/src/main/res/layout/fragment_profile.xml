@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:orientation="vertical"
+    tools:context=".presentation.profile.ProfileFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarProfile"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_background"
+        app:title="@string/profile_title"
+        app:titleTextColor="@color/color_on_background" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingTop="@dimen/space_xs"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingBottom="@dimen/content_bottom_space">
+
+            <!-- Cabeçalho: avatar + nome + cargo + e-mail -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.FieldService.Card.Static"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_lg">
+
+                    <TextView
+                        android:id="@+id/textInitials"
+                        android:layout_width="@dimen/avatar_size"
+                        android:layout_height="@dimen/avatar_size"
+                        android:background="@drawable/bg_avatar"
+                        android:contentDescription="@string/cd_avatar"
+                        android:gravity="center"
+                        android:textColor="@color/color_primary"
+                        android:textSize="@dimen/text_headline"
+                        android:textStyle="bold"
+                        tools:text="JS" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_md"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.FieldService.Title"
+                            tools:text="João Silva" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_xxs"
+                            android:text="@string/profile_role"
+                            android:textColor="@color/color_primary"
+                            android:textSize="@dimen/text_body" />
+
+                        <TextView
+                            android:id="@+id/textEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_xxs"
+                            android:textAppearance="@style/TextAppearance.FieldService.Caption"
+                            tools:text="tecnico@fieldservice.com" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- STATUS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_xxs"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/profile_section_status"
+                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.FieldService.Card.Static"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_md">
+
+                    <ImageView
+                        android:id="@+id/statusDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_dot"
+                        app:tint="@color/color_success" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_xs"
+                        android:text="@string/profile_status_available"
+                        android:textAppearance="@style/TextAppearance.FieldService.Body" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- INFORMAÇÕES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_xxs"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/profile_section_info"
+                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.FieldService.Card.Static"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_md">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_info_role"
+                        android:textAppearance="@style/TextAppearance.FieldService.Caption" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_xxs"
+                        android:text="@string/profile_role"
+                        android:textAppearance="@style/TextAppearance.FieldService.Body" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stroke_hairline"
+                        android:layout_marginTop="@dimen/space_md"
+                        android:layout_marginBottom="@dimen/space_md"
+                        android:background="@color/color_outline" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_info_email"
+                        android:textAppearance="@style/TextAppearance.FieldService.Caption" />
+
+                    <TextView
+                        android:id="@+id/textEmailInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_xxs"
+                        android:textAppearance="@style/TextAppearance.FieldService.Body"
+                        tools:text="tecnico@fieldservice.com" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CONFIGURAÇÕES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_xxs"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/profile_section_settings"
+                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.FieldService.Card.Static"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/rowNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/touch_min"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_notifications" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_md"
+                            android:layout_weight="1"
+                            android:text="@string/profile_settings_notifications"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body" />
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stroke_hairline"
+                        android:layout_marginStart="@dimen/space_md"
+                        android:layout_marginEnd="@dimen/space_md"
+                        android:background="@color/color_outline" />
+
+                    <LinearLayout
+                        android:id="@+id/rowTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/touch_min"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_palette" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_md"
+                            android:layout_weight="1"
+                            android:text="@string/profile_settings_theme"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body" />
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/stroke_hairline"
+                        android:layout_marginStart="@dimen/space_md"
+                        android:layout_marginEnd="@dimen/space_md"
+                        android:background="@color/color_outline" />
+
+                    <LinearLayout
+                        android:id="@+id/rowAbout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/touch_min"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_info" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_md"
+                            android:layout_weight="1"
+                            android:text="@string/profile_settings_about"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body" />
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sair (ação secundária/perigosa, discreta) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonLogout"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/action_logout"
+                android:textColor="@color/color_danger"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconTint="@color/color_danger"
+                app:rippleColor="@color/color_danger" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

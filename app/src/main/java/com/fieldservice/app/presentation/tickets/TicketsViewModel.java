@@ -11,12 +11,16 @@ import com.fieldservice.app.presentation.UiState;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 public class TicketsViewModel extends ViewModel {
 
     private final MutableLiveData<TicketFilter> selectedFilter = new MutableLiveData<>(TicketFilter.ALL);
     private final MediatorLiveData<UiState<List<Ticket>>> uiState = new MediatorLiveData<>();
+    // Contagem de chamados por filtro, exibida nos chips (ex.: "Todos 7").
+    private final MutableLiveData<Map<TicketFilter, Integer>> filterCounts = new MutableLiveData<>();
 
     private List<Ticket> latestTickets = Collections.emptyList();
     private TicketFilter latestFilter = TicketFilter.ALL;
@@ -26,6 +30,7 @@ public class TicketsViewModel extends ViewModel {
 
         uiState.addSource(ticketRepository.observeTickets(), tickets -> {
             latestTickets = tickets;
+            updateCounts();
             recompute();
         });
         uiState.addSource(selectedFilter, filter -> {
@@ -42,8 +47,32 @@ public class TicketsViewModel extends ViewModel {
         return selectedFilter;
     }
 
+    public LiveData<Map<TicketFilter, Integer>> getFilterCounts() {
+        return filterCounts;
+    }
+
     public void onFilterSelected(TicketFilter filter) {
         selectedFilter.setValue(filter);
+    }
+
+    /** Reprocessa a lista atual (usado pelo botão "Tentar novamente"). */
+    public void retry() {
+        updateCounts();
+        recompute();
+    }
+
+    private void updateCounts() {
+        Map<TicketFilter, Integer> counts = new EnumMap<>(TicketFilter.class);
+        for (TicketFilter filter : TicketFilter.values()) {
+            int count = 0;
+            for (Ticket ticket : latestTickets) {
+                if (filter.matches(ticket.getStatus())) {
+                    count++;
+                }
+            }
+            counts.put(filter, count);
+        }
+        filterCounts.setValue(counts);
     }
 
     private void recompute() {

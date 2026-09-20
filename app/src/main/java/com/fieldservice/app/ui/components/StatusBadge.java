@@ -76,5 +76,13 @@ public final class StatusBadge {
             background.setTint(ColorUtils.setAlphaComponent(color, BACKGROUND_ALPHA));
             view.setBackground(background);
         }
+
+        // Ponto colorido à esquerda: reforça a distinção sem depender apenas da cor do texto.
+        Drawable dot = ContextCompat.getDrawable(context, R.drawable.ic_dot);
+        if (dot != null) {
+            dot = dot.mutate();
+            dot.setTint(color);
+            view.setCompoundDrawablesRelativeWithIntrinsicBounds(dot, null, null, null);
+        }
     }
 }

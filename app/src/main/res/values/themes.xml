@@ -15,6 +15,51 @@
         <item name="android:statusBarColor">@color/color_background</item>
         <item name="android:navigationBarColor">@color/color_background</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.FieldService.Activity</item>
+
+        <!-- Cores de texto padrão do app (garante legibilidade fora dos estilos explícitos) -->
+        <item name="android:textColorPrimary">@color/color_on_surface</item>
+        <item name="android:textColorSecondary">@color/color_on_surface_variant</item>
+
+        <!-- Toolbar padrão: todas as MaterialToolbar herdam a tipografia do app -->
+        <item name="toolbarStyle">@style/Widget.FieldService.Toolbar</item>
+    </style>
+
+    <!-- Transições de tela mais fluidas (fade + leve deslize), aplicadas a todas as activities. -->
+    <style name="Animation.FieldService.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+    <!-- Botão "liquid glass": vidro translúcido, borda de luz, cantos arredondados,
+         ripple suave e resposta elástica ao toque (stateListAnimator). -->
+    <style name="Widget.FieldService.Button.Glass" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/glass_fill</item>
+        <item name="strokeColor">@color/glass_stroke</item>
+        <item name="strokeWidth">@dimen/stroke_hairline</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="rippleColor">@color/glass_ripple</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="elevation">6dp</item>
+        <item name="android:stateListAnimator">@animator/glass_button_lift</item>
+    </style>
+
+    <!-- Variante de destaque (CTAs): vidro com tom azul da marca. -->
+    <style name="Widget.FieldService.Button.Glass.Primary">
+        <item name="backgroundTint">@color/glass_primary_fill</item>
+        <item name="strokeColor">@color/glass_primary_stroke</item>
+        <item name="rippleColor">@color/glass_primary_ripple</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+    </style>
+
+    <!-- Indicador da aba ativa na barra inferior: pílula de vidro neutro translúcido. -->
+    <style name="Widget.FieldService.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/glass_nav_active_indicator</item>
     </style>
 
     <style name="Theme.FieldService.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">

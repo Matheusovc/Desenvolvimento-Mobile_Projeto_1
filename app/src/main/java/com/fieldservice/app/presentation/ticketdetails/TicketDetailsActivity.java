@@ -2,16 +2,27 @@ package com.fieldservice.app.presentation.ticketdetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.AutoTransition;
+import androidx.transition.TransitionManager;
 
+import com.fieldservice.app.R;
 import com.fieldservice.app.data.AppContainer;
 import com.fieldservice.app.databinding.ActivityTicketDetailsBinding;
+import com.fieldservice.app.databinding.ItemTimelineStepBinding;
 import com.fieldservice.app.domain.model.Ticket;
+import com.fieldservice.app.domain.model.TicketStatus;
 import com.fieldservice.app.presentation.UiState;
 import com.fieldservice.app.ui.components.PriorityBadge;
 import com.fieldservice.app.ui.components.StatusBadge;
@@ -69,6 +80,11 @@ public class TicketDetailsActivity extends AppCompatActivity {
         }
 
         Ticket ticket = state.getData();
+        // Anima suavemente as mudanças (badge de status e botão) ao avançar o atendimento.
+        AutoTransition transition = new AutoTransition();
+        transition.setDuration(280);
+        TransitionManager.beginDelayedTransition(binding.contentDetails, transition);
+
         binding.textNumber.setText(ticket.getNumber());
         binding.textCustomer.setText(ticket.getCustomerName());
         binding.textTitle.setText(ticket.getTitle());
@@ -78,18 +94,84 @@ public class TicketDetailsActivity extends AppCompatActivity {
         binding.textAddressValue.setText(ticket.getAddress());
         binding.textDescriptionValue.setText(ticket.getDescription());
 
+        renderTimeline(ticket.getStatus());
+
         TicketAction action = TicketAction.forStatus(ticket.getStatus());
         if (action != null) {
-            binding.buttonAction.setVisibility(View.VISIBLE);
+            binding.actionBar.setVisibility(View.VISIBLE);
             binding.buttonAction.setText(action.labelRes);
             binding.buttonAction.setOnClickListener(v -> viewModel.advance(action.nextStatus));
         } else {
-            binding.buttonAction.setVisibility(View.GONE);
+            binding.actionBar.setVisibility(View.GONE);
             binding.buttonAction.setOnClickListener(null);
         }
     }
 
+    // Fluxo linear do atendimento representado na timeline.
+    private static final TicketStatus[] FLOW = {
+            TicketStatus.ASSIGNED,
+            TicketStatus.ACCEPTED,
+            TicketStatus.TRAVELING,
+            TicketStatus.ON_SITE,
+            TicketStatus.IN_PROGRESS,
+            TicketStatus.COMPLETED
+    };
+
+    /** Desenha a linha do tempo do atendimento, destacando o progresso até o status atual. */
+    private void renderTimeline(TicketStatus status) {
+        binding.timelineContainer.removeAllViews();
+
+        int current = indexOf(status);
+        if (status == TicketStatus.WAITING_CONFIRMATION) {
+            current = indexOf(TicketStatus.IN_PROGRESS);
+        }
+
+        int primary = ContextCompat.getColor(this, R.color.color_primary);
+        int success = ContextCompat.getColor(this, R.color.color_success);
+        int muted = ContextCompat.getColor(this, R.color.color_on_surface_muted);
+        int onSurface = ContextCompat.getColor(this, R.color.color_on_surface);
+        int activeColor = (status == TicketStatus.COMPLETED) ? success : primary;
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        for (int i = 0; i < FLOW.length; i++) {
+            ItemTimelineStepBinding row =
+                    ItemTimelineStepBinding.inflate(inflater, binding.timelineContainer, false);
+
+            row.stepLabel.setText(StatusBadge.label(FLOW[i]));
+
+            boolean reached = i <= current;
+            Drawable dot = row.dot.getDrawable().mutate();
+            dot.setTint(reached ? activeColor : muted);
+
+            row.lineTop.setVisibility(i == 0 ? View.INVISIBLE : View.VISIBLE);
+            row.lineBottom.setVisibility(i == FLOW.length - 1 ? View.INVISIBLE : View.VISIBLE);
+            row.lineTop.setBackgroundColor(i <= current ? activeColor : muted);
+            row.lineBottom.setBackgroundColor(i < current ? activeColor : muted);
+
+            if (i == current) {
+                row.stepLabel.setTextColor(onSurface);
+                row.stepLabel.setTypeface(null, Typeface.BOLD);
+            } else if (i < current) {
+                row.stepLabel.setTextColor(onSurface);
+            } else {
+                row.stepLabel.setTextColor(muted);
+            }
+
+            binding.timelineContainer.addView(row.getRoot());
+        }
+    }
+
+    private int indexOf(TicketStatus status) {
+        for (int i = 0; i < FLOW.length; i++) {
+            if (FLOW[i] == status) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     private void renderUpdating(boolean updating) {
         binding.buttonAction.setEnabled(!updating);
+        binding.progressAction.setVisibility(updating ? View.VISIBLE : View.GONE);
     }
 }

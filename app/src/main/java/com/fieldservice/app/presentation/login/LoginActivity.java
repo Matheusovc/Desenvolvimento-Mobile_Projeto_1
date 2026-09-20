@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.fieldservice.app.data.AppContainer;
 import com.fieldservice.app.databinding.ActivityLoginBinding;
-import com.fieldservice.app.presentation.home.HomeActivity;
+import com.fieldservice.app.presentation.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (state.isLoginSuccessful()) {
-                startActivity(new Intent(this, HomeActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
         });

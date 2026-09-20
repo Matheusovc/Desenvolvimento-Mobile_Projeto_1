@@ -9,6 +9,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 constraintlayout = "2.1.4"
 recyclerview = "1.3.2"
+transition = "1.5.0"
 archCoreTesting = "2.2.0"
 
 [libraries]
@@ -16,6 +17,7 @@ androidx-core = { group = "androidx.core", name = "core", version.ref = "android
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+androidx-transition = { group = "androidx.transition", name = "transition", version.ref = "transition" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "lifecycle" }
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycle" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camada escura sobre a imagem de fundo do login, para garantir contraste e
+     legibilidade dos textos. Mais leve no topo (mostra a imagem) e mais escura
+     embaixo (onde ficam os campos e o botão). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#59000000"
+        android:centerColor="#73000000"
+        android:endColor="#D90B0D10"
+        android:type="linear" />
+</shape>

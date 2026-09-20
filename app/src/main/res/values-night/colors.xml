@@ -3,27 +3,47 @@
     <!-- Mesma paleta de values/colors.xml: o FieldService tem uma única identidade
          visual (dark), independente do tema do sistema estar claro ou escuro. -->
 
-    <color name="color_background">#0F1115</color>
-    <color name="color_surface">#181B21</color>
-    <color name="color_surface_variant">#20242C</color>
-    <color name="color_outline">#2A2F3A</color>
+    <!-- Superfícies -->
+    <color name="color_background">#0B0D10</color>
+    <color name="color_surface">#12151A</color>
+    <color name="color_card">#181C22</color>
+    <color name="color_card_highlight">#1E232B</color>
+    <color name="color_surface_variant">#1E232B</color>
+    <color name="color_outline">#292F38</color>
 
+    <!-- Texto -->
     <color name="color_on_background">#FFFFFF</color>
     <color name="color_on_surface">#FFFFFF</color>
-    <color name="color_on_surface_variant">#A7ADB8</color>
+    <color name="color_on_surface_variant">#A8AFBA</color>
+    <color name="color_on_surface_muted">#6C7480</color>
 
+    <!-- Marca / destaque -->
     <color name="color_primary">#4C8DFF</color>
+    <color name="color_primary_dim">#2E5BB0</color>
     <color name="color_on_primary">#FFFFFF</color>
-    <color name="color_error">#EF5350</color>
+    <color name="color_error">#FF5A5F</color>
     <color name="color_on_error">#FFFFFF</color>
 
-    <color name="priority_low">#66BB6A</color>
-    <color name="priority_medium">#FFB74D</color>
-    <color name="priority_high">#FF8A65</color>
-    <color name="priority_critical">#EF5350</color>
+    <!-- Cores semânticas -->
+    <color name="color_success">#3DD68C</color>
+    <color name="color_warning">#FFB74D</color>
+    <color name="color_danger">#FF5A5F</color>
+    <color name="color_info">#4C8DFF</color>
 
+    <!-- Prioridade do chamado -->
+    <color name="priority_low">#66BB6A</color>
+    <color name="priority_medium">#FFCA3A</color>
+    <color name="priority_high">#FF922B</color>
+    <color name="priority_critical">#FF4D4F</color>
+
+    <!-- Status do chamado -->
     <color name="status_neutral">#9AA5B1</color>
     <color name="status_in_progress">#64B5F6</color>
-    <color name="status_completed">#66BB6A</color>
-    <color name="status_cancelled">#B0B0B0</color>
+    <color name="status_completed">#3DD68C</color>
+    <color name="status_cancelled">#8A929E</color>
+
+    <!-- Barra de navegação flutuante (liquid glass) -->
+    <color name="glass_nav_fill">#B8181C22</color>
+    <color name="glass_nav_stroke">#26FFFFFF</color>
+    <color name="glass_nav_active_indicator">#24FFFFFF</color>
 </resources>
