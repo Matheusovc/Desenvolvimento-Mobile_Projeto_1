@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Barra inferior "liquid glass": cápsula flutuante de vidro escuro translúcido
-     (deixa ver o fundo por trás), com uma fina borda de luz. Cantos totalmente
-     arredondados para o formato de pílula, como a tab bar do iOS. -->
+<!-- Barra inferior "liquid glass": cápsula flutuante translúcida. As cores variam
+     conforme o tema (vidro escuro no Dark/Super Dark, cinza-claro no Claro). -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="@color/glass_nav_fill" />
+    <solid android:color="?attr/fsNavFill" />
     <stroke
         android:width="@dimen/stroke_hairline"
-        android:color="@color/glass_nav_stroke" />
+        android:color="?attr/fsNavStroke" />
     <corners android:radius="@dimen/radius_pill" />
 </shape>

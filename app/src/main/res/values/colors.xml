@@ -68,6 +68,10 @@
     <color name="light_on_surface">#10131A</color>
     <color name="light_on_surface_variant">#5B636F</color>
     <color name="light_on_surface_muted">#8A929E</color>
+    <!-- Barra de navegação no tema claro: cinza-claro translúcido -->
+    <color name="light_nav_fill">#E6EDF0F5</color>
+    <color name="light_nav_stroke">#22000000</color>
+    <color name="light_nav_indicator">#16000000</color>
 
     <!-- ============ Tema SUPER DARK (AMOLED) ============ -->
     <color name="sd_background">#000000</color>

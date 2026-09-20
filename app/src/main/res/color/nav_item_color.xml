@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ícone/rótulo da barra inferior: branco (neutro) quando ativo, cinza quando inativo.
-     A distinção do estado ativo vem da cor + do ícone preenchido + da pílula translúcida. -->
+<!-- Ícone/rótulo da barra inferior: acompanha o tema (claro/escuro).
+     Ativo = cor de destaque do texto; inativo = variante secundária. -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/color_on_surface" android:state_checked="true" />
-    <item android:color="@color/color_on_surface_variant" />
+    <item android:color="?attr/fsOnSurface" android:state_checked="true" />
+    <item android:color="?attr/fsOnSurfaceVariant" />
 </selector>

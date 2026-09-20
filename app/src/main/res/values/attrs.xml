@@ -12,4 +12,9 @@
     <attr name="fsOnSurface" format="color" />
     <attr name="fsOnSurfaceVariant" format="color" />
     <attr name="fsOnSurfaceMuted" format="color" />
+
+    <!-- Barra de navegação flutuante (varia por tema) -->
+    <attr name="fsNavFill" format="color" />
+    <attr name="fsNavStroke" format="color" />
+    <attr name="fsNavIndicator" format="color" />
 </resources>
