@@ -118,8 +118,8 @@
     <!-- Indicador da aba ativa na barra inferior: pílula de vidro neutro translúcido. -->
     <style name="Widget.FieldService.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">?attr/fsNavIndicator</item>
-        <item name="android:width">76dp</item>
-        <item name="android:height">40dp</item>
+        <item name="android:width">104dp</item>
+        <item name="android:height">44dp</item>
     </style>
 
     <style name="Theme.FieldService.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
