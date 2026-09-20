@@ -66,4 +66,14 @@
     <string name="profile_settings_about">Sobre o FieldService</string>
     <string name="profile_soon">Disponível em breve</string>
     <string name="cd_avatar">Avatar do técnico</string>
+
+    <!-- Diálogos de configurações -->
+    <string name="theme_dark">Escuro (padrão)</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_super_dark">Super Dark</string>
+    <string name="notif_new_ticket">Novo chamado</string>
+    <string name="notif_ticket_2h">Chamado com mais de 2h de atuação</string>
+    <string name="action_save">Salvar</string>
+    <string name="settings_saved">Preferências salvas</string>
+    <string name="about_message">Versão 2.0_build0.1\n\nGestão de atendimentos em campo.</string>
 </resources>

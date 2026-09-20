@@ -57,4 +57,22 @@
     <color name="glass_nav_fill">#B8181C22</color>
     <color name="glass_nav_stroke">#26FFFFFF</color>
     <color name="glass_nav_active_indicator">#24FFFFFF</color>
+
+    <!-- ============ Tema CLARO ============ -->
+    <color name="light_background">#EEF1F5</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_card">#FFFFFF</color>
+    <color name="light_card_highlight">#EDF0F4</color>
+    <color name="light_outline">#D9DEE6</color>
+    <color name="light_on_background">#10131A</color>
+    <color name="light_on_surface">#10131A</color>
+    <color name="light_on_surface_variant">#5B636F</color>
+    <color name="light_on_surface_muted">#8A929E</color>
+
+    <!-- ============ Tema SUPER DARK (AMOLED) ============ -->
+    <color name="sd_background">#000000</color>
+    <color name="sd_surface">#070809</color>
+    <color name="sd_card">#0C0E12</color>
+    <color name="sd_card_highlight">#14171C</color>
+    <color name="sd_outline">#1E222A</color>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tokens de cor do tema FieldService. Cada tema (Dark, Claro, Super Dark) define
+         estes atributos; layouts/estilos referenciam ?attr/fs* em vez de cores fixas,
+         permitindo troca de tema em tempo de execução. -->
+    <attr name="fsBackground" format="color" />
+    <attr name="fsSurface" format="color" />
+    <attr name="fsCard" format="color" />
+    <attr name="fsCardHighlight" format="color" />
+    <attr name="fsOutline" format="color" />
+    <attr name="fsOnBackground" format="color" />
+    <attr name="fsOnSurface" format="color" />
+    <attr name="fsOnSurfaceVariant" format="color" />
+    <attr name="fsOnSurfaceMuted" format="color" />
+</resources>

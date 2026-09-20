@@ -48,6 +48,7 @@ public class TicketDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(com.fieldservice.app.data.SettingsPrefs.themeStyleRes(this));
         super.onCreate(savedInstanceState);
         binding = ActivityTicketDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -128,8 +129,8 @@ public class TicketDetailsActivity extends AppCompatActivity {
 
         int primary = ContextCompat.getColor(this, R.color.color_primary);
         int success = ContextCompat.getColor(this, R.color.color_success);
-        int muted = ContextCompat.getColor(this, R.color.color_on_surface_muted);
-        int onSurface = ContextCompat.getColor(this, R.color.color_on_surface);
+        int muted = resolveThemeColor(R.attr.fsOnSurfaceMuted);
+        int onSurface = resolveThemeColor(R.attr.fsOnSurface);
         int activeColor = (status == TicketStatus.COMPLETED) ? success : primary;
 
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -159,6 +160,13 @@ public class TicketDetailsActivity extends AppCompatActivity {
 
             binding.timelineContainer.addView(row.getRoot());
         }
+    }
+
+    /** Resolve uma cor definida como atributo do tema atual (ex.: R.attr.fsOnSurface). */
+    private int resolveThemeColor(int attrRes) {
+        android.util.TypedValue tv = new android.util.TypedValue();
+        getTheme().resolveAttribute(attrRes, tv, true);
+        return tv.data;
     }
 
     private int indexOf(TicketStatus status) {

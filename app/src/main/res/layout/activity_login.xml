@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="?attr/fsBackground"
     tools:context=".presentation.login.LoginActivity">
 
     <!-- Imagem de capa em tela cheia -->
     <ImageView
+        android:id="@+id/imageLoginBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
@@ -19,6 +20,7 @@
 
     <!-- Scrim escuro para legibilidade dos textos sobre a imagem -->
     <View
+        android:id="@+id/viewLoginScrim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_login_scrim" />

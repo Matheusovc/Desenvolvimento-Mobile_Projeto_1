@@ -35,6 +35,11 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // No tema Claro, oculta a textura de fundo (usa fundo claro sólido).
+        if (com.fieldservice.app.data.SettingsPrefs.isLight(requireContext())) {
+            binding.imageHomeBg.setVisibility(View.GONE);
+        }
+
         priorityTicketsAdapter = new TicketAdapter(ticket ->
                 startActivity(TicketDetailsActivity.newIntent(requireContext(), ticket.getId()))
         );

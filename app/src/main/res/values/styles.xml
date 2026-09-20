@@ -11,52 +11,52 @@
     <style name="TextAppearance.FieldService.Display" parent="TextAppearance.Material3.HeadlineMedium">
         <item name="android:textSize">@dimen/text_display</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <style name="TextAppearance.FieldService.Headline" parent="TextAppearance.Material3.HeadlineSmall">
         <item name="android:textSize">@dimen/text_headline</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <!-- Título de seção ("Resumo do dia", "Chamados prioritários") -->
     <style name="TextAppearance.FieldService.Title" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_title</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <style name="TextAppearance.FieldService.TitleSmall" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">@dimen/text_title_sm</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textColor">?attr/fsOnSurface</item>
     </style>
 
     <!-- Número grande de destaque nos cards de resumo -->
     <style name="TextAppearance.FieldService.Metric" parent="TextAppearance.Material3.HeadlineMedium">
         <item name="android:textSize">@dimen/text_metric</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textColor">?attr/fsOnSurface</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
     <!-- Corpo de texto principal -->
     <style name="TextAppearance.FieldService.Body" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textSize">@dimen/text_body</item>
-        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textColor">?attr/fsOnSurface</item>
     </style>
 
     <!-- Texto secundário / de apoio -->
     <style name="TextAppearance.FieldService.BodySecondary" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textSize">@dimen/text_body</item>
-        <item name="android:textColor">@color/color_on_surface_variant</item>
+        <item name="android:textColor">?attr/fsOnSurfaceVariant</item>
     </style>
 
     <!-- Informação terciária (datas, metadados) -->
     <style name="TextAppearance.FieldService.Caption" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">@dimen/text_caption</item>
-        <item name="android:textColor">@color/color_on_surface_variant</item>
+        <item name="android:textColor">?attr/fsOnSurfaceVariant</item>
     </style>
 
     <!-- Rótulo discreto de seção ("CLIENTE", "ENDEREÇO") em caixa alta -->
@@ -65,14 +65,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.08</item>
-        <item name="android:textColor">@color/color_on_surface_variant</item>
+        <item name="android:textColor">?attr/fsOnSurfaceVariant</item>
     </style>
 
     <!-- Título da barra superior (Toolbar) -->
     <style name="TextAppearance.FieldService.Toolbar" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_title</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <!-- ============================================================
@@ -81,18 +81,18 @@
 
     <!-- Barra superior padrão do app: fundo do app, título com nossa tipografia -->
     <style name="Widget.FieldService.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:background">@color/color_background</item>
+        <item name="android:background">?attr/fsBackground</item>
         <item name="titleTextAppearance">@style/TextAppearance.FieldService.Toolbar</item>
-        <item name="titleTextColor">@color/color_on_background</item>
-        <item name="navigationIconTint">@color/color_on_background</item>
+        <item name="titleTextColor">?attr/fsOnBackground</item>
+        <item name="navigationIconTint">?attr/fsOnBackground</item>
     </style>
 
     <!-- Card padrão: superfície de card + borda sutil (melhor que sombra no dark) -->
     <style name="Widget.FieldService.Card" parent="Widget.Material3.CardView.Outlined">
-        <item name="cardBackgroundColor">@color/color_card</item>
+        <item name="cardBackgroundColor">?attr/fsCard</item>
         <item name="cardCornerRadius">@dimen/radius_lg</item>
         <item name="cardElevation">0dp</item>
-        <item name="strokeColor">@color/color_outline</item>
+        <item name="strokeColor">?attr/fsOutline</item>
         <item name="strokeWidth">@dimen/stroke_hairline</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>

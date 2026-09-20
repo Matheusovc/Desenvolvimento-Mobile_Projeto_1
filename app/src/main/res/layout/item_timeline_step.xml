@@ -17,7 +17,7 @@
             android:layout_width="2dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/color_outline" />
+            android:background="?attr/fsOutline" />
 
         <ImageView
             android:id="@+id/dot"
@@ -31,7 +31,7 @@
             android:layout_width="2dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/color_outline" />
+            android:background="?attr/fsOutline" />
 
     </LinearLayout>
 

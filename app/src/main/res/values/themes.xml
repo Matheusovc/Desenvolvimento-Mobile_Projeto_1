@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ================= Tema base: DARK (padrão) ================= -->
     <style name="Theme.FieldService" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorOnPrimary">@color/color_on_primary</item>
@@ -17,12 +18,63 @@
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowAnimationStyle">@style/Animation.FieldService.Activity</item>
 
-        <!-- Cores de texto padrão do app (garante legibilidade fora dos estilos explícitos) -->
         <item name="android:textColorPrimary">@color/color_on_surface</item>
         <item name="android:textColorSecondary">@color/color_on_surface_variant</item>
 
-        <!-- Toolbar padrão: todas as MaterialToolbar herdam a tipografia do app -->
         <item name="toolbarStyle">@style/Widget.FieldService.Toolbar</item>
+
+        <!-- Tokens de cor do tema (referenciados por ?attr/fs* nos layouts/estilos) -->
+        <item name="fsBackground">@color/color_background</item>
+        <item name="fsSurface">@color/color_surface</item>
+        <item name="fsCard">@color/color_card</item>
+        <item name="fsCardHighlight">@color/color_card_highlight</item>
+        <item name="fsOutline">@color/color_outline</item>
+        <item name="fsOnBackground">@color/color_on_background</item>
+        <item name="fsOnSurface">@color/color_on_surface</item>
+        <item name="fsOnSurfaceVariant">@color/color_on_surface_variant</item>
+        <item name="fsOnSurfaceMuted">@color/color_on_surface_muted</item>
+    </style>
+
+    <!-- ================= Tema CLARO ================= -->
+    <style name="Theme.FieldService.Light">
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/light_card_highlight</item>
+        <item name="colorOnSurfaceVariant">@color/light_on_surface_variant</item>
+        <item name="colorOutline">@color/light_outline</item>
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="android:statusBarColor">@color/light_background</item>
+        <item name="android:navigationBarColor">@color/light_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:textColorPrimary">@color/light_on_surface</item>
+        <item name="android:textColorSecondary">@color/light_on_surface_variant</item>
+
+        <item name="fsBackground">@color/light_background</item>
+        <item name="fsSurface">@color/light_surface</item>
+        <item name="fsCard">@color/light_card</item>
+        <item name="fsCardHighlight">@color/light_card_highlight</item>
+        <item name="fsOutline">@color/light_outline</item>
+        <item name="fsOnBackground">@color/light_on_background</item>
+        <item name="fsOnSurface">@color/light_on_surface</item>
+        <item name="fsOnSurfaceVariant">@color/light_on_surface_variant</item>
+        <item name="fsOnSurfaceMuted">@color/light_on_surface_muted</item>
+    </style>
+
+    <!-- ================= Tema SUPER DARK (AMOLED) ================= -->
+    <style name="Theme.FieldService.SuperDark">
+        <item name="colorSurface">@color/sd_surface</item>
+        <item name="colorSurfaceVariant">@color/sd_card_highlight</item>
+        <item name="colorOutline">@color/sd_outline</item>
+        <item name="android:colorBackground">@color/sd_background</item>
+        <item name="android:statusBarColor">@color/sd_background</item>
+        <item name="android:navigationBarColor">@color/sd_background</item>
+
+        <item name="fsBackground">@color/sd_background</item>
+        <item name="fsSurface">@color/sd_surface</item>
+        <item name="fsCard">@color/sd_card</item>
+        <item name="fsCardHighlight">@color/sd_card_highlight</item>
+        <item name="fsOutline">@color/sd_outline</item>
     </style>
 
     <!-- Transições de tela mais fluidas (fade + leve deslize), aplicadas a todas as activities. -->

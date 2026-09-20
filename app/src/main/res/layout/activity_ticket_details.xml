@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="?attr/fsBackground"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".presentation.ticketdetails.TicketDetailsActivity">
@@ -14,9 +14,9 @@
         android:id="@+id/toolbarDetails"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:navigationIconTint="@color/color_on_background"
+        app:navigationIconTint="?attr/fsOnBackground"
         app:title="@string/detail_title"
-        app:titleTextColor="@color/color_on_background" />
+        app:titleTextColor="?attr/fsOnBackground" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -284,7 +284,7 @@
             android:layout_height="@dimen/button_height"
             app:icon="@drawable/ic_check"
             app:iconGravity="textStart"
-            app:iconTint="@color/color_on_surface"
+            app:iconTint="?attr/fsOnSurface"
             tools:text="@string/action_accept_ticket" />
 
         <ProgressBar

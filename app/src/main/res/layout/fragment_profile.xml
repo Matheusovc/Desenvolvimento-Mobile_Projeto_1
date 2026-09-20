@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="?attr/fsBackground"
     android:orientation="vertical"
     tools:context=".presentation.profile.ProfileFragment">
 
@@ -13,9 +13,9 @@
         android:id="@+id/toolbarProfile"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_background"
+        android:background="?attr/fsBackground"
         app:title="@string/profile_title"
-        app:titleTextColor="@color/color_on_background" />
+        app:titleTextColor="?attr/fsOnBackground" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -172,7 +172,7 @@
                         android:layout_height="@dimen/stroke_hairline"
                         android:layout_marginTop="@dimen/space_md"
                         android:layout_marginBottom="@dimen/space_md"
-                        android:background="@color/color_outline" />
+                        android:background="?attr/fsOutline" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -250,7 +250,7 @@
                         android:layout_height="@dimen/stroke_hairline"
                         android:layout_marginStart="@dimen/space_md"
                         android:layout_marginEnd="@dimen/space_md"
-                        android:background="@color/color_outline" />
+                        android:background="?attr/fsOutline" />
 
                     <LinearLayout
                         android:id="@+id/rowTheme"
@@ -291,7 +291,7 @@
                         android:layout_height="@dimen/stroke_hairline"
                         android:layout_marginStart="@dimen/space_md"
                         android:layout_marginEnd="@dimen/space_md"
-                        android:background="@color/color_outline" />
+                        android:background="?attr/fsOutline" />
 
                     <LinearLayout
                         android:id="@+id/rowAbout"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="?attr/fsBackground"
     android:orientation="vertical"
     tools:context=".presentation.tickets.TicketsFragment">
 
@@ -13,9 +13,9 @@
         android:id="@+id/toolbarTickets"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_background"
+        android:background="?attr/fsBackground"
         app:title="@string/tickets_title"
-        app:titleTextColor="@color/color_on_background" />
+        app:titleTextColor="?attr/fsOnBackground" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:layout_height="@dimen/empty_icon_size"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_empty_tickets"
-                app:tint="@color/color_on_surface_muted" />
+                app:tint="?attr/fsOnSurfaceMuted" />
 
             <TextView
                 android:layout_width="wrap_content"

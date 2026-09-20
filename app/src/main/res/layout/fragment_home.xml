@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="?attr/fsBackground"
     tools:context=".presentation.home.HomeFragment">
 
     <!-- Textura hexagonal de fundo da Home -->
     <ImageView
+        android:id="@+id/imageHomeBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
@@ -28,7 +29,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
             app:title="@string/home_title"
-            app:titleTextColor="@color/color_on_background" />
+            app:titleTextColor="?attr/fsOnBackground" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -229,7 +230,7 @@
                     android:layout_height="@dimen/empty_icon_size"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_empty_tickets"
-                    app:tint="@color/color_on_surface_muted" />
+                    app:tint="?attr/fsOnSurfaceMuted" />
 
                 <TextView
                     android:layout_width="match_parent"
