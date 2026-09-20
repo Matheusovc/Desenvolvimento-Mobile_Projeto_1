@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================================
+         SISTEMA DE ESPAÇAMENTO
+         Escala consistente usada em margens e paddings de todo o app.
+         ============================================================ -->
+    <dimen name="space_xxs">4dp</dimen>
+    <dimen name="space_xs">8dp</dimen>
+    <dimen name="space_sm">12dp</dimen>
+    <dimen name="space_md">16dp</dimen>
+    <dimen name="space_lg">20dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+
+    <!-- Margem lateral padrão das telas -->
+    <dimen name="screen_margin">16dp</dimen>
+
+    <!-- ============================================================
+         RAIOS DE CANTO
+         ============================================================ -->
+    <dimen name="radius_sm">10dp</dimen>   <!-- chips -->
+    <dimen name="radius_md">12dp</dimen>   <!-- botões -->
+    <dimen name="radius_lg">16dp</dimen>   <!-- cards -->
+    <dimen name="radius_pill">100dp</dimen> <!-- badges / pílulas -->
+
+    <!-- ============================================================
+         BORDAS / TRAÇOS
+         ============================================================ -->
+    <dimen name="stroke_hairline">1dp</dimen>
+
+    <!-- ============================================================
+         ESCALA TIPOGRÁFICA
+         ============================================================ -->
+    <dimen name="text_display">32sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_title_sm">16sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_label">11sp</dimen>
+    <dimen name="text_metric">30sp</dimen>   <!-- números grandes dos cards -->
+
+    <!-- ============================================================
+         TAMANHOS DE COMPONENTES
+         ============================================================ -->
+    <dimen name="touch_min">48dp</dimen>          <!-- área mínima de toque -->
+    <dimen name="button_height">54dp</dimen>       <!-- botão principal -->
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">20dp</dimen>
+    <dimen name="icon_lg">24dp</dimen>
+    <dimen name="avatar_size">72dp</dimen>
+    <dimen name="empty_icon_size">64dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <!-- Espaço reservado no fim das telas para o conteúdo não ficar sob a barra flutuante
+         (altura da barra + margem inferior + folga). -->
+    <dimen name="content_bottom_space">96dp</dimen>
+</resources>

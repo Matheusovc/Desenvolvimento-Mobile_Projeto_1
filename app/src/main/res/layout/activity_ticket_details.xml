@@ -5,19 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
-    android:orientation="vertical"
+    android:background="?attr/fsBackground"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".presentation.ticketdetails.TicketDetailsActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarDetails"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_background"
-        app:navigationIconTint="@color/color_on_background"
+        app:navigationIconTint="?attr/fsOnBackground"
         app:title="@string/detail_title"
-        app:titleTextColor="@color/color_on_background" />
+        app:titleTextColor="?attr/fsOnBackground" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -28,20 +27,24 @@
             android:id="@+id/contentDetails"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/space_md">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/screen_margin">
 
+                <!-- Cabeçalho -->
                 <TextView
                     android:id="@+id/textNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_on_background"
-                    android:textSize="24sp"
+                    android:letterSpacing="0.03"
+                    android:textColor="@color/color_primary"
+                    android:textSize="@dimen/text_body"
                     android:textStyle="bold"
                     tools:text="#1028" />
 
@@ -49,119 +52,201 @@
                     android:id="@+id/textCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/color_on_surface"
-                    android:textSize="18sp"
+                    android:layout_marginTop="@dimen/space_xxs"
+                    android:textAppearance="@style/TextAppearance.FieldService.Headline"
                     tools:text="Empresa XYZ" />
 
                 <TextView
                     android:id="@+id/textTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/color_on_surface_variant"
-                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/space_xxs"
+                    android:textAppearance="@style/TextAppearance.FieldService.BodySecondary"
                     tools:text="Servidor indisponível" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/space_md"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textPriorityBadge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="10dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="4dp"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
+                        style="@style/Widget.FieldService.Badge"
+                        android:layout_marginEnd="@dimen/space_xs"
                         tools:text="Alta" />
-
-                    <View
-                        android:layout_width="8dp"
-                        android:layout_height="1dp" />
 
                     <TextView
                         android:id="@+id/textStatusBadge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="10dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="4dp"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
+                        style="@style/Widget.FieldService.Badge"
                         tools:text="Atribuído" />
 
                 </LinearLayout>
 
-                <TextView
+                <!-- Local -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.FieldService.Card.Static"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/detail_client"
-                    android:textColor="@color/color_on_surface_variant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="@dimen/space_lg">
 
-                <TextView
-                    android:id="@+id/textClientValue"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_md">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_md"
+                                android:layout_height="@dimen/icon_md"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_location" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_xs"
+                                android:text="@string/detail_address"
+                                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textAddressValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_xs"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body"
+                            tools:text="Brasília - DF" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Cliente -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.FieldService.Card.Static"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/color_on_surface"
-                    android:textSize="15sp"
-                    tools:text="Empresa XYZ" />
+                    android:layout_marginTop="@dimen/space_sm">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_md">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_md"
+                                android:layout_height="@dimen/icon_md"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_business" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_xs"
+                                android:text="@string/detail_client"
+                                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textClientValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_xs"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body"
+                            tools:text="Empresa XYZ" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Descrição -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.FieldService.Card.Static"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/detail_address"
-                    android:textColor="@color/color_on_surface_variant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="@dimen/space_sm">
 
-                <TextView
-                    android:id="@+id/textAddressValue"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_md">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_md"
+                                android:layout_height="@dimen/icon_md"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_description" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_xs"
+                                android:text="@string/detail_description"
+                                android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textDescriptionValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_xs"
+                            android:lineSpacingExtra="2dp"
+                            android:textAppearance="@style/TextAppearance.FieldService.Body"
+                            tools:text="Servidor não inicializa após queda de energia." />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Status do atendimento (timeline) -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.FieldService.Card.Static"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/color_on_surface"
-                    android:textSize="15sp"
-                    tools:text="Brasília - DF" />
+                    android:layout_marginTop="@dimen/space_sm">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/detail_description"
-                    android:textColor="@color/color_on_surface_variant"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_md">
 
-                <TextView
-                    android:id="@+id/textDescriptionValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/color_on_surface"
-                    android:textSize="15sp"
-                    android:lineSpacingExtra="2dp"
-                    tools:text="Servidor não inicializa após queda de energia." />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/detail_status_title"
+                            android:textAppearance="@style/TextAppearance.FieldService.SectionLabel" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonAction"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="32dp"
-                    android:visibility="gone"
-                    tools:text="@string/action_accept_ticket"
-                    tools:visibility="visible" />
+                        <LinearLayout
+                            android:id="@+id/timelineContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_sm"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
@@ -173,11 +258,42 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="24dp"
+            android:padding="@dimen/space_xl"
             android:text="@string/ticket_not_found"
-            android:textColor="@color/color_on_surface_variant"
-            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.FieldService.BodySecondary"
             android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Barra de ação fixa no rodapé -->
+    <FrameLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/screen_margin"
+        android:paddingTop="@dimen/space_sm"
+        android:paddingEnd="@dimen/screen_margin"
+        android:paddingBottom="@dimen/space_md"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAction"
+            style="@style/Widget.FieldService.Button.Glass.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            app:icon="@drawable/ic_check"
+            app:iconGravity="textStart"
+            app:iconTint="?attr/fsOnSurface"
+            tools:text="@string/action_accept_ticket" />
+
+        <ProgressBar
+            android:id="@+id/progressAction"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
     </FrameLayout>
 

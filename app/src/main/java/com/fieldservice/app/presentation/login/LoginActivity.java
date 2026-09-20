@@ -11,8 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.fieldservice.app.data.AppContainer;
+import com.fieldservice.app.data.SettingsPrefs;
 import com.fieldservice.app.databinding.ActivityLoginBinding;
-import com.fieldservice.app.presentation.home.HomeActivity;
+import com.fieldservice.app.presentation.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,9 +22,16 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(SettingsPrefs.themeStyleRes(this));
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // No tema Claro, oculta a imagem de capa (usa fundo claro sólido).
+        if (SettingsPrefs.isLight(this)) {
+            binding.imageLoginBg.setVisibility(View.GONE);
+            binding.viewLoginScrim.setVisibility(View.GONE);
+        }
 
         viewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
             @NonNull
@@ -58,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (state.isLoginSuccessful()) {
-                startActivity(new Intent(this, HomeActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
         });

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fsBackground"
+    android:fitsSystemWindows="true"
+    tools:context=".presentation.main.MainActivity">
+
+    <!-- Conteúdo das abas: ocupa a tela inteira; a barra flutua por cima. -->
+    <FrameLayout
+        android:id="@+id/navHostContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Barra de navegação "liquid glass": cápsula flutuante translúcida. -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_nav_height"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/screen_margin"
+        android:layout_marginEnd="@dimen/screen_margin"
+        android:layout_marginBottom="@dimen/space_md"
+        android:background="@drawable/bg_glass_bottom_nav"
+        android:elevation="8dp"
+        app:elevation="8dp"
+        app:itemActiveIndicatorStyle="@style/Widget.FieldService.BottomNav.ActiveIndicator"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="selected"
+        app:menu="@menu/menu_bottom_nav" />
+
+</FrameLayout>

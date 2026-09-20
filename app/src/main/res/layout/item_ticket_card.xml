@@ -3,99 +3,108 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.FieldService.Card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    android:clickable="true"
-    android:focusable="true"
-    app:cardBackgroundColor="@color/color_surface"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="0dp"
-    app:strokeWidth="0dp">
+    android:layout_marginBottom="@dimen/space_sm">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/space_md">
 
+        <!-- Cabeçalho: número do chamado (destaque) + data -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textNumberCustomer"
+                android:id="@+id/textNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/color_on_surface"
-                android:textSize="16sp"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_caption"
                 android:textStyle="bold"
-                tools:text="#1028 · Empresa XYZ" />
+                android:letterSpacing="0.03"
+                tools:text="#1028" />
 
             <TextView
                 android:id="@+id/textDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_on_surface_variant"
-                android:textSize="12sp"
-                tools:text="21/08/2026" />
+                android:textAppearance="@style/TextAppearance.FieldService.Caption"
+                tools:text="19/09/2026" />
 
         </LinearLayout>
 
+        <!-- Cliente (título do card) -->
+        <TextView
+            android:id="@+id/textCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xxs"
+            android:textAppearance="@style/TextAppearance.FieldService.TitleSmall"
+            tools:text="Empresa XYZ" />
+
+        <!-- Problema -->
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/space_xxs"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/color_on_surface"
-            android:textSize="14sp"
+            android:textAppearance="@style/TextAppearance.FieldService.BodySecondary"
             tools:text="Servidor indisponível" />
 
-        <TextView
-            android:id="@+id/textAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:textColor="@color/color_on_surface_variant"
-            android:textSize="12sp"
-            tools:text="Brasília - DF" />
-
+        <!-- Localização -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/space_sm"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/icon_sm"
+                android:layout_height="@dimen/icon_sm"
+                android:contentDescription="@string/cd_location"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/textAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_xxs"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.FieldService.Caption"
+                tools:text="Brasília - DF" />
+
+        </LinearLayout>
+
+        <!-- Selos: prioridade + status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textPriorityBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="4dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                style="@style/Widget.FieldService.Badge"
+                android:layout_marginEnd="@dimen/space_xs"
                 tools:text="Alta" />
-
-            <View
-                android:layout_width="8dp"
-                android:layout_height="1dp" />
 
             <TextView
                 android:id="@+id/textStatusBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="10dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="4dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                style="@style/Widget.FieldService.Badge"
                 tools:text="Atribuído" />
 
         </LinearLayout>

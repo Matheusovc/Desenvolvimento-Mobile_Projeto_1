@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fundo circular do avatar do perfil (iniciais do técnico sobre azul translúcido). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/glass_primary_fill" />
+    <stroke
+        android:width="@dimen/stroke_hairline"
+        android:color="@color/glass_primary_stroke" />
+</shape>

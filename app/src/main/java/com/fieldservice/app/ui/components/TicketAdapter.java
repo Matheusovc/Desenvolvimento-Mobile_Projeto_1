@@ -61,8 +61,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         }
 
         void bind(Ticket ticket, OnTicketClickListener listener) {
-            binding.textNumberCustomer.setText(
-                    ticket.getNumber() + " · " + ticket.getCustomerName());
+            binding.textNumber.setText(ticket.getNumber());
+            binding.textCustomer.setText(ticket.getCustomerName());
             binding.textDate.setText(DateFormatter.format(ticket.getCreatedAt()));
             binding.textTitle.setText(ticket.getTitle());
             binding.textAddress.setText(ticket.getAddress());

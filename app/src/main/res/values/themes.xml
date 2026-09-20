@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ================= Tema base: DARK (padrão) ================= -->
     <style name="Theme.FieldService" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorOnPrimary">@color/color_on_primary</item>
@@ -15,6 +16,102 @@
         <item name="android:statusBarColor">@color/color_background</item>
         <item name="android:navigationBarColor">@color/color_background</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.FieldService.Activity</item>
+
+        <item name="android:textColorPrimary">@color/color_on_surface</item>
+        <item name="android:textColorSecondary">@color/color_on_surface_variant</item>
+
+        <item name="toolbarStyle">@style/Widget.FieldService.Toolbar</item>
+
+        <!-- Tokens de cor do tema (referenciados por ?attr/fs* nos layouts/estilos) -->
+        <item name="fsBackground">@color/color_background</item>
+        <item name="fsSurface">@color/color_surface</item>
+        <item name="fsCard">@color/color_card</item>
+        <item name="fsCardHighlight">@color/color_card_highlight</item>
+        <item name="fsOutline">@color/color_outline</item>
+        <item name="fsOnBackground">@color/color_on_background</item>
+        <item name="fsOnSurface">@color/color_on_surface</item>
+        <item name="fsOnSurfaceVariant">@color/color_on_surface_variant</item>
+        <item name="fsOnSurfaceMuted">@color/color_on_surface_muted</item>
+    </style>
+
+    <!-- ================= Tema CLARO ================= -->
+    <style name="Theme.FieldService.Light">
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/light_card_highlight</item>
+        <item name="colorOnSurfaceVariant">@color/light_on_surface_variant</item>
+        <item name="colorOutline">@color/light_outline</item>
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="android:statusBarColor">@color/light_background</item>
+        <item name="android:navigationBarColor">@color/light_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:textColorPrimary">@color/light_on_surface</item>
+        <item name="android:textColorSecondary">@color/light_on_surface_variant</item>
+
+        <item name="fsBackground">@color/light_background</item>
+        <item name="fsSurface">@color/light_surface</item>
+        <item name="fsCard">@color/light_card</item>
+        <item name="fsCardHighlight">@color/light_card_highlight</item>
+        <item name="fsOutline">@color/light_outline</item>
+        <item name="fsOnBackground">@color/light_on_background</item>
+        <item name="fsOnSurface">@color/light_on_surface</item>
+        <item name="fsOnSurfaceVariant">@color/light_on_surface_variant</item>
+        <item name="fsOnSurfaceMuted">@color/light_on_surface_muted</item>
+    </style>
+
+    <!-- ================= Tema SUPER DARK (AMOLED) ================= -->
+    <style name="Theme.FieldService.SuperDark">
+        <item name="colorSurface">@color/sd_surface</item>
+        <item name="colorSurfaceVariant">@color/sd_card_highlight</item>
+        <item name="colorOutline">@color/sd_outline</item>
+        <item name="android:colorBackground">@color/sd_background</item>
+        <item name="android:statusBarColor">@color/sd_background</item>
+        <item name="android:navigationBarColor">@color/sd_background</item>
+
+        <item name="fsBackground">@color/sd_background</item>
+        <item name="fsSurface">@color/sd_surface</item>
+        <item name="fsCard">@color/sd_card</item>
+        <item name="fsCardHighlight">@color/sd_card_highlight</item>
+        <item name="fsOutline">@color/sd_outline</item>
+    </style>
+
+    <!-- Transições de tela mais fluidas (fade + leve deslize), aplicadas a todas as activities. -->
+    <style name="Animation.FieldService.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+    <!-- Botão "liquid glass": vidro translúcido, borda de luz, cantos arredondados,
+         ripple suave e resposta elástica ao toque (stateListAnimator). -->
+    <style name="Widget.FieldService.Button.Glass" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/glass_fill</item>
+        <item name="strokeColor">@color/glass_stroke</item>
+        <item name="strokeWidth">@dimen/stroke_hairline</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="rippleColor">@color/glass_ripple</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="elevation">6dp</item>
+        <item name="android:stateListAnimator">@animator/glass_button_lift</item>
+    </style>
+
+    <!-- Variante de destaque (CTAs): vidro com tom azul da marca. -->
+    <style name="Widget.FieldService.Button.Glass.Primary">
+        <item name="backgroundTint">@color/glass_primary_fill</item>
+        <item name="strokeColor">@color/glass_primary_stroke</item>
+        <item name="rippleColor">@color/glass_primary_ripple</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+    </style>
+
+    <!-- Indicador da aba ativa na barra inferior: pílula de vidro neutro translúcido. -->
+    <style name="Widget.FieldService.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/glass_nav_active_indicator</item>
     </style>
 
     <style name="Theme.FieldService.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
